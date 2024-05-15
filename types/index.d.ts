@@ -60,7 +60,7 @@ declare type Account = {
   type: string;
   subtype: string;
   appwriteItemId: string;
-  sharableId: string;
+  shareableId: string;
 };
 
 declare type Transaction = {
@@ -89,7 +89,7 @@ declare type Bank = {
   accessToken: string;
   fundingSourceUrl: string;
   userId: string;
-  sharableId: string;
+  shareableId: string;
 };
 
 declare type AccountTypes =
@@ -123,6 +123,94 @@ declare type AddFundingSourceParams = {
   processorToken: string;
   bankName: string;
 };
+
+
+/* eslint-disable no-unused-vars */
+
+declare type SearchParamProps = {
+  params: { [key: string]: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+declare type GlobeConfig = {
+  pointSize?: number;
+  globeColor?: string;
+  showAtmosphere?: boolean;
+  atmosphereColor?: string;
+  atmosphereAltitude?: number;
+  emissive?: string;
+  emissiveIntensity?: number;
+  shininess?: number;
+  polygonColor?: string;
+  ambientLight?: string;
+  directionalLeftLight?: string;
+  directionalTopLight?: string;
+  pointLight?: string;
+  arcTime?: number;
+  arcLength?: number;
+  rings?: number;
+  maxRings?: number;
+  initialPosition?: { lat: number; lng: number };
+  autoRotate?: boolean;
+  autoRotateSpeed?: number;
+};
+
+declare type Position = {
+  order: number;
+  startLat: number;
+  startLng: number;
+  endLat: number;
+  endLng: number;
+  arcAlt: number;
+  color: string;
+};
+
+declare interface WorldProps {
+  globeConfig: GlobeConfig;
+  data: Position[];
+}
+
+// ... (rest of your existing types and interfaces)
+
+declare type SignUpParams = {
+  firstName: string;
+  lastName: string;
+  address1: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  dateOfBirth: string;
+  ssn: string;
+  email: string;
+  password: string;
+};
+
+declare type LoginUser = {
+  email: string;
+  password: string;
+};
+
+declare type User = {
+  $id: string;
+  email: string;
+  userId: string;
+  dwollaCustomerUrl: string;
+  dwollaCustomerId: string;
+  firstName: string;
+  lastName: string;
+  name: string;
+  address1: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  dateOfBirth: string;
+  ssn: string;
+};
+
+// ... (rest of your existing types and interfaces)
+
+
+
 
 declare type NewDwollaCustomerParams = {
   firstName: string;
@@ -203,7 +291,7 @@ declare interface BankTabItemProps {
   appwriteItemId?: string;
 }
 
-declare interface TotlaBalanceBoxProps {
+declare interface TotalBalanceBoxProps {
   accounts: Account[];
   totalBanks: number;
   totalCurrentBalance: number;
@@ -314,7 +402,7 @@ declare interface createBankAccountProps {
   accountId: string;
   bankId: string;
   fundingSourceUrl: string;
-  sharableId: string;
+  shareableId: string;
 }
 
 declare interface getBanksProps {
