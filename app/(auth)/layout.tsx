@@ -72,8 +72,8 @@ export default function RootLayout({
   return (
     <main className='flex min-h-screen w-full font-inter relative'>
       <div className='flex-1'>{children}</div>
-      <div className='flex-1 flex justify-center items-center bg-blue-100 relative'>
-        <div className='w-full h-full max-w-1/2 max-h-1/2 relative'>
+      <div className='flex-1 flex justify-center items-center bg-blue-100 relative max-lg:hidden'>
+        <div className='w-full h-full max-w-1/2 max-h-1/2 relative '>
           <World globeConfig={globeConfig} data={data} />
           <TextOverlay />
         </div>
