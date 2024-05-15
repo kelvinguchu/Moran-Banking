@@ -50,14 +50,17 @@ const generateRandomPositions = (num: number): Position[] => {
   return positions;
 };
 
-
 // Generate 50 random positions
-const data = generateRandomPositions(100);
+const data = generateRandomPositions(70);
 
 const TextOverlay = () => (
-  <div className='absolute top-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center'>
-    <h1 className='text-3xl font-bold font-inter'>Monitor your money💸</h1>
-    <p className='text-semibold font-ibm-plex-sans'>stay financially informed</p>
+  <div className='absolute top-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center'>
+    <h1 className='text-4xl font-extrabold font-inter text-center whitespace-nowrap'>
+      Grow your money with us.
+    </h1>
+    <p className='text-semibold font-ibm-plex-sans text-center'>
+      THE MORAN BANK
+    </p>
   </div>
 );
 
