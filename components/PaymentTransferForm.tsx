@@ -62,16 +62,17 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
       const transferParams = {
         sourceFundingSourceUrl: senderBank.fundingSourceUrl,
         destinationFundingSourceUrl: receiverBank.fundingSourceUrl,
-        amount: data.amount,
+        amount: (parseFloat(data.amount) / 120).toString(),
       };
       // create transfer
       const transfer = await createTransfer(transferParams);
 
       // create transfer transaction
       if (transfer) {
+        
         const transaction = {
           name: data.name,
-          amount: data.amount,
+          amount: (parseFloat(data.amount) / 120).toString(),
           senderId: senderBank.userId.$id,
           senderBankId: senderBank.$id,
           receiverId: receiverBank.userId.$id,
@@ -219,12 +220,12 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
             <FormItem className='border-y border-gray-200'>
               <div className='payment-transfer_form-item py-5'>
                 <FormLabel className='text-14 w-full max-w-[280px] font-medium text-gray-700'>
-                  Amount
+                  Amount in Ksh.
                 </FormLabel>
                 <div className='flex w-full flex-col'>
                   <FormControl>
                     <Input
-                      placeholder='ex: 5.00'
+                      placeholder='ex: 1000.00'
                       className='input-class'
                       {...field}
                     />

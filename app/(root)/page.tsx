@@ -4,21 +4,36 @@ import RightSidebar from "@/components/RightSideBar";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import { getAccount, getAccounts } from "@/lib/actions/bank.actions";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
+import { redirect } from "next/navigation";
 
 const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
+
+  // Check if loggedIn is not null
+  if (!loggedIn) {
+    redirect("/sign-in");
+  }
+
   const accounts = await getAccounts({
     userId: loggedIn.$id,
   });
 
-  if (!accounts) return;
+  // Check if accounts are not fetched
+  if (!accounts) {
+    return;
+  }
 
-  const accountsData = accounts?.data;
+  const accountsData = accounts.data;
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
+
+  if (!appwriteItemId) {
+    return;
+  }
 
   const account = await getAccount({ appwriteItemId });
 
+  // Return the component structure
   return (
     <section className='home'>
       <div className='home-content'>
@@ -26,14 +41,14 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
           <HeaderBox
             type='greeting'
             title='Welcome'
-            user={loggedIn?.firstName || "Guest"}
+            user={loggedIn.firstName || "Guest"}
             subtext='Access and manage your account and transactions efficiently.'
           />
 
           <TotalBalanceBox
             accounts={accountsData}
             totalBanks={accounts?.totalBanks}
-            totalCurrentBalance={accounts?.totalCurrentBalance}
+            totalCurrentBalance={accounts?.totalCurrentBalance * 120} 
           />
         </header>
 

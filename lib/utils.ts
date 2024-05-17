@@ -73,7 +73,7 @@ export function formatAmount(amount: number): string {
     minimumFractionDigits: 2,
   });
 
-  return formatter.format(amount);
+  return formatter.format(amount * 120);
 }
 
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
@@ -189,11 +189,11 @@ export function decryptId(id: string) {
 
 export const getTransactionStatus = (date: Date) => {
   const today = new Date();
-  const twoDaysAgo = new Date(today);
-  twoDaysAgo.setDate(today.getDate() - 2);
+  const fiveMinutesAgo = new Date(today.getTime() - 5* 60 * 1000);
 
-  return date > twoDaysAgo ? "Processing" : "Success";
+  return date > fiveMinutesAgo ? "Processing" : "Success";
 };
+
 
 export const authFormSchema = (type: string) =>
   z.object({

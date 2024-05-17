@@ -9,7 +9,6 @@ const BankCard = ({
   userName,
   showBalance = true,
 }: CreditCardProps) => {
-  console.log(account);
 
 
   return (
