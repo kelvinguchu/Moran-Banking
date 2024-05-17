@@ -34,7 +34,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
         </SheetTrigger>
         <SheetContent
           side='left'
-          className='border-none bg-white h-screen overflow-y-auto'>
+          className='border-none bg-white h-screen flex flex-col'>
           <Link
             href='/'
             className='cursor-pointer flex items-center gap-1 px-4'>
@@ -48,9 +48,9 @@ const MobileNav = ({ user }: MobileNavProps) => {
               Moran Bank
             </h1>
           </Link>
-          <div className='mobilenav-sheet'>
+          <div className='mobilenav-sheet flex-1 overflow-y-auto'>
             <SheetClose asChild>
-              <nav className='flex h-full flex-col gap-6 pt-16 text-white'>
+              <nav className='flex flex-col gap-6 pt-16 text-white'>
                 {sidebarLinks.map((item) => {
                   const isActive =
                     pathname === item.route ||
@@ -87,7 +87,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                 <PlaidLink user={user} />
               </nav>
             </SheetClose>
-
+            <div className='divider'></div> {/* Divider Line */}
             <Footer user={user} type='mobile' />
           </div>
         </SheetContent>
