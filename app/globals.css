@@ -249,7 +249,7 @@
 
 /* Mobile nav */
 .mobilenav-sheet {
-  @apply flex flex-col justify-between overflow-y-auto;
+  @apply flex flex-col justify-evenly overflow-y-auto;
 }
 
 .mobilenav-sheet_close {
