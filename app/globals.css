@@ -256,9 +256,6 @@
   @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-60;
 }
 
-.divider {
-  @apply border-t border-gray-300 mb-1 mt-1;
-}
 
   /* PlaidLink */
   .plaidlink-primary {

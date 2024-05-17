@@ -87,7 +87,6 @@ const MobileNav = ({ user }: MobileNavProps) => {
                 <PlaidLink user={user} />
               </nav>
             </SheetClose>
-            <div className='divider'></div>
             <Footer user={user} type='mobile' />
           </div>
         </SheetContent>
