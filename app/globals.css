@@ -247,14 +247,14 @@
     @apply gap-[18px] border-b-2 flex px-2 sm:px-4 py-2 transition-all;
   }
 
-  /* Mobile nav */
-  .mobilenav-sheet {
-    @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto;
-  }
+/* Mobile nav */
+.mobilenav-sheet {
+  @apply flex flex-col justify-between overflow-y-auto;
+}
 
-  .mobilenav-sheet_close {
-    @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-60;
-  }
+.mobilenav-sheet_close {
+  @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-60;
+}
 
   /* PlaidLink */
   .plaidlink-primary {

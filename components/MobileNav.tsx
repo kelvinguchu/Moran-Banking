@@ -21,7 +21,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
 
   return (
-    <section className='w-full  max-w-[264px]'>
+    <section className='w-full max-w-[264px]'>
       <Sheet>
         <SheetTrigger>
           <Image
@@ -32,7 +32,9 @@ const MobileNav = ({ user }: MobileNavProps) => {
             className='cursor-pointer'
           />
         </SheetTrigger>
-        <SheetContent side='left' className='border-none bg-white h-screen'>
+        <SheetContent
+          side='left'
+          className='border-none bg-white h-screen overflow-y-auto'>
           <Link
             href='/'
             className='cursor-pointer flex items-center gap-1 px-4'>
@@ -83,7 +85,6 @@ const MobileNav = ({ user }: MobileNavProps) => {
                 })}
 
                 <PlaidLink user={user} />
-
               </nav>
             </SheetClose>
 
